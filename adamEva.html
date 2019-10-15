@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam vaf Eva</title>
+</head>
+<body>
+<button type="button" onclick="aple.getWeight()">Cân nặng Táo</button>
+<button type="button" onclick="adam.checkApple()">Táo sau ăn</button>
+<button type="button" onclick="adam.eat()">Adam ăn</button>
+<button type="button" onclick="adam.getWeight()">Cân nặng Adam</button>
+<button type="button" onclick="eva.eat()">Eva ăn</button>
+<button type="button" onclick="eva.getWeight()">Cân nặng Eva</button>
+<script>
+    function Apple(weight,Empty) {
+        this.weight = weight;
+        this.Empty = Empty;
+        this.Empty = function () {
+            alert("Hết táo");
+        }
+        this.getWeight = function () {
+            alert("Cân nặng của táo là "+this.weight)
+        }
+        
+    }
+    
+    function Human(name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight ;
+
+        this.getName = function () {
+            return this.name;
+        }
+
+        this.setName = function (name) {
+            this.name = name;
+        }
+
+        this.getGender = function (gender) {
+            return this.gender;
+        }
+
+        this.setGender = function () {
+            this.gender = gender;
+        }
+
+        this.getWeight = function () {
+            alert("Cân nặng của "+this.name+" là "+this.weight)
+        }
+
+        this.setWeight = function (weight) {
+            this.weight = weight;
+        }
+        this.say = function () {
+            alert("Xin chào, tôi là "+this.name);
+        }
+        this.eat = function () {
+            if (aple.weight<1){
+                alert("Đã hết táo, hãy đi mua táo ngay !")
+            }else {
+                this.weight++;
+                aple.weight--;
+                alert(this.name+" đã ăn 1 miếng táo")
+            }
+        }
+        this.checkApple = function () {
+            if (aple.weight<1){
+                return aple.Empty();
+            }else {
+                alert("Khối lượng táo là "+aple.weight);
+            }
+        }
+    }
+    let aple = new Apple(10,"")
+    let adam = new Human("Adam","man",70);
+    let eva = new Human("Eva", "girl",48);
+</script>
+</body>
+</html>
